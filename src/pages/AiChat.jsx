@@ -23,7 +23,7 @@ const AiChat = ({ collapsed, setCollapsed, isMobile }) => {
               onClick={() => setActiveTab('copilot')}
             >
               <Bot className="w-5 h-5 mr-1" />
-              <span className="hidden xs:inline">Copilot</span>
+              <span className="xs:hidden">Copilot</span>
             </button>
             {activeTab === 'copilot' && (
               <span
@@ -42,7 +42,7 @@ const AiChat = ({ collapsed, setCollapsed, isMobile }) => {
               className={`tab font-medium px-3 py-0 text-xs md:text-sm cursor-pointer h-full flex items-center focus:outline-none bg-transparent border-none ${activeTab === 'details' ? 'active text-[#6364c8]' : 'text-gray-500'}`}
               onClick={() => setActiveTab('details')}
             >
-              <span className="hidden xs:inline">Details</span>
+              <span className="xs:hidden">Details</span>
             </button>
             {activeTab === 'details' && (
               <span
