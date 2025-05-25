@@ -49,7 +49,7 @@ const CustomerChat = ({ selectedId, aiChatCollapsed, onExpandAiChat, isMobile, o
 						return (
 							<div
 								key={msg.id}
-								className="message customer-message bg-[#f1f0f0] rounded-2xl mb-2 md:mb-4 max-w-[80%] self-start p-2 md:p-4 text-xs md:text-sm"
+								className="message customer-message bg-[#f1f0f0] rounded-2xl mb-2 md:mb-4 max-w-[80%] self-start p-2 md:p-4 text-sm md:text-md"
 							>
 								{msg.text}
 								<div className="message-time text-[10px] md:text-xs text-gray-500 mt-1 md:mt-2 ml-1 md:ml-2">
