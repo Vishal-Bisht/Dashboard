@@ -9,7 +9,7 @@ const Details = () => {
   };
 
   return (
-    <div className="details-panel bg-white h-full flex flex-col text-left px-0 py-0">
+    <div className="bg-white h-full flex flex-col text-left px-0 py-0">
       <div className="flex-1 flex flex-col gap-0 overflow-y-auto">
         {/* Assignee Section */}
         <div className="panel-section rounded-lg bg-white p-4">

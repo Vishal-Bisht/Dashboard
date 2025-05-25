@@ -11,7 +11,7 @@ const AiChat = ({ collapsed, setCollapsed, isMobile }) => {
   return (
     <aside
       className={
-        `copilot-sidebar relative w-[300px] bg-[#f7f7f9] border-l border-[#e1e2e6] flex flex-col h-full transition-all duration-1000 ease-in-out overflow-hidden scrollbar-hide ${isMobile ? 'w-full max-w-full min-w-0 h-full fixed inset-0 z-50 bg-white' : ''}`
+        `relative w-[300px] bg-[#f7f7f9] border-l border-[#e1e2e6] flex flex-col h-full transition-all duration-1000 ease-in-out overflow-hidden scrollbar-hide ${isMobile ? 'w-full max-w-full min-w-0 h-full fixed inset-0 z-50 bg-white' : ''}`
       }
     >
       {/* Topbar */}
@@ -19,7 +19,7 @@ const AiChat = ({ collapsed, setCollapsed, isMobile }) => {
         <div className={`flex items-center gap-1 h-full`}>
           <div className="relative h-full flex items-center">
             <button
-              className={`tab font-medium px-2 text-xs md:text-sm cursor-pointer h-full flex items-center focus:outline-none bg-transparent border-none ${activeTab === 'copilot' ? 'active text-[#6364c8]' : 'text-gray-500'}`}
+              className={`font-medium px-2 text-xs md:text-sm cursor-pointer h-full flex items-center focus:outline-none bg-transparent border-none ${activeTab === 'copilot' ? 'active text-[#6364c8]' : 'text-gray-500'}`}
               onClick={() => setActiveTab('copilot')}
             >
               <Bot className="w-5 h-5 mr-1" />
@@ -39,7 +39,7 @@ const AiChat = ({ collapsed, setCollapsed, isMobile }) => {
           </div>
           <div className="relative h-full flex items-center">
             <button
-              className={`tab font-medium px-3 py-0 text-xs md:text-sm cursor-pointer h-full flex items-center focus:outline-none bg-transparent border-none ${activeTab === 'details' ? 'active text-[#6364c8]' : 'text-gray-500'}`}
+              className={`font-medium px-3 py-0 text-xs md:text-sm cursor-pointer h-full flex items-center focus:outline-none bg-transparent border-none ${activeTab === 'details' ? 'active text-[#6364c8]' : 'text-gray-500'}`}
               onClick={() => setActiveTab('details')}
             >
               <span className="xs:hidden">Details</span>
