@@ -3,7 +3,7 @@ import conversations from "../Data/conversations";
 
 const Inbox = ({ selectedId, onSelect }) => {
 	return (
-		<aside className="bg-white border-r border-[#e1e2e6] flex flex-col h-full z-20 w-1/3 min-w-[100px] max-w-[200px] md:w-[320px] md:min-w-[320px] md:max-w-[320px] scrollbar-hide">
+		<aside className="bg-white border-r border-[#e1e2e6] flex flex-col h-full z-20 w-full md:w-[320px] min-w-0 md:min-w-[320px] max-w-full md:max-w-[320px] scrollbar-hide">
 			<div className="inbox-header h-16 px-4 flex items-center font-bold border-b border-[#e1e2e6] justify-between text-base md:text-lg lg:text-xl relative">
 				<span>Your inbox</span>
 			</div>
