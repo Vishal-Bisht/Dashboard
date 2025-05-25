@@ -4,7 +4,7 @@ import messages from '../Data/messages';
 const CustomerChat = ({ selectedId, aiChatCollapsed, onExpandAiChat, isMobile, onOpenAiChat, onBack, showBackButton }) => {
 	const filteredMessages = messages.filter((msg) => msg.convId === selectedId);
 	return (
-		<section className="chat-area flex-1 flex flex-col bg-white h-full">
+		<section className="chat-area flex-1 flex flex-col bg-white h-full relative">
 			{/* Chat Header */}
 			<div className="chat-header flex justify-between items-center px-2 md:px-4 h-14 md:h-16 border-b border-[#e1e2e6]">
 				<div className="flex items-center gap-2">
@@ -43,7 +43,7 @@ const CustomerChat = ({ selectedId, aiChatCollapsed, onExpandAiChat, isMobile, o
 				</div>
 			</div>
 			{/* Messages */}
-			<div className="messages-container flex-1 px-2 md:px-4 py-2 md:py-4 bg-white flex flex-col scrollbar-hide">
+			<div className="messages-container flex-1 px-2 md:px-4 py-2 md:py-4 bg-white flex flex-col scrollbar-hide mb-[70px] md:mb-[110px]">
 				{filteredMessages.map((msg, idx) => {
 					if (msg.type === 'customer') {
 						return (
@@ -87,7 +87,7 @@ const CustomerChat = ({ selectedId, aiChatCollapsed, onExpandAiChat, isMobile, o
 				})}
 			</div>
 			{/* Chat Input */}
-			<div className="chat-input-area w-full flex items-center justify-center px-2 md:px-4 py-2 md:py-3 bg-transparent mb-3 md:mb-6">
+			<div className="chat-input-area w-full flex items-center justify-center px-2 md:px-4 py-2 md:py-3 bg-transparent mb-3 md:mb-6 absolute bottom-0 left-0 right-0 z-10">
 				<div className="flex items-center mx-auto" style={{ width: '100%', maxWidth: '672px' }}>
 					<div className="avatar w-6 h-6 md:w-7 md:h-7 rounded-full flex items-center justify-center text-xs md:text-xs font-bold bg-blue-400 mr-1 md:mr-2">
 						<User className="w-5 h-5 text-white" />
