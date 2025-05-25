@@ -4,8 +4,8 @@ import Details from './Details';
 const Copilot = ({ activeTab, setActiveTab }) => {
   return (
     <>
-      {/* Main Content */}
-      <div className="flex-1 flex flex-col">
+      {/* Main Content & Copilot Input Wrapper */}
+      <div className="flex flex-col h-full relative">
         {activeTab === 'copilot' ? (
           <div className="copilot-content flex flex-col items-center justify-center flex-1 text-center px-6">
             <div className="copilot-avatar w-9 h-9 bg-black rounded-md flex items-center justify-center text-white mb-4">
@@ -20,13 +20,13 @@ const Copilot = ({ activeTab, setActiveTab }) => {
         ) : (
           <Details />
         )}
+        {/* Copilot Input (only for Copilot tab) */}
+        {activeTab === 'copilot' && (
+          <div className="copilot-input w-full max-w-md px-6 absolute left-1/2 -translate-x-1/2 bottom-6">
+            <input type="text" className="ask-input w-full px-7 py-4 border border-[#e1e2e6] rounded-xl text-sm focus:outline-none bg-[#e5e7eb] shadow-lg" placeholder="Ask a question..." />
+          </div>
+        )}
       </div>
-      {/* Copilot Input (only for Copilot tab) */}
-      {activeTab === 'copilot' && (
-        <div className="copilot-input mt-auto px-6 py-4">
-          <input type="text" className="ask-input w-full px-3 py-2 border border-[#e1e2e6] rounded text-sm focus:outline-none" placeholder="Ask a question..." />
-        </div>
-      )}
     </>
   );
 };

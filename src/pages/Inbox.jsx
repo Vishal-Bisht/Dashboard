@@ -1,85 +1,41 @@
-import { ChevronDown, AlertCircle, Settings, User } from "lucide-react";
+import { ChevronDown, AlertCircle } from "lucide-react";
+import conversations from "../Data/conversations";
 
-const conversations = [
-	{
-		id: 1,
-		active: true,
-		avatar: <User className="w-6 h-6 text-white" />, // Blue
-		avatarColor: "bg-blue-400",
-		name: "Luis - Github",
-		time: "45m",
-		preview: "Hey! I have a question about...",
-	},
-	{
-		id: 2,
-		avatar: <User className="w-6 h-6 text-white" />, // Red
-		avatarColor: "bg-red-400",
-		name: "Ivan - Nike",
-		time: "30m",
-		priority: "3min",
-		preview: "Hi there, I have a question...",
-	},
-	{
-		id: 3,
-		avatar: <User className="w-6 h-6 text-white" />, // Blue
-		avatarColor: "bg-blue-400",
-		name: "Lead from New York",
-		time: "40m",
-		preview: "Good morning, let me...",
-		subAvatar: <User className="w-4 h-4 text-white" />, // Black small
-		subAvatarColor: "bg-black",
-	},
-	{
-		id: 4,
-		avatar: <Settings className="w-6 h-6 text-white" />, // Black, square
-		avatarColor: "bg-black rounded-md",
-		name: "Breaking API problems",
-		time: "45m",
-		preview: "Bug report",
-		subPreview: "Luis - Small Crafts",
-	},
-	{
-		id: 5,
-		avatar: <User className="w-6 h-6 text-white" />, // Purple
-		avatarColor: "bg-purple-500",
-		name: "Miracle - Exemplary Bank",
-		time: "45m",
-		preview: "Hey there, I'm here to...",
-	},
-];
-
-const Inbox = () => {
+const Inbox = ({ selectedId, onSelect }) => {
 	return (
-		<aside className="w-[280px] bg-white border-r border-[#e1e2e6] flex flex-col h-full">
-			<div className="inbox-header h-16 px-4 flex items-center font-bold border-b border-[#e1e2e6] justify-between text-base">
+		<aside className="bg-white border-r border-[#e1e2e6] flex flex-col h-full z-20 w-1/3 min-w-[100px] max-w-[200px] md:w-[320px] md:min-w-[320px] md:max-w-[320px] scrollbar-hide">
+			<div className="inbox-header h-16 px-4 flex items-center font-bold border-b border-[#e1e2e6] justify-between text-base md:text-lg lg:text-xl relative">
 				<span>Your inbox</span>
 			</div>
-			<div className="filter-bar flex gap-2 px-4 py-2 border-b border-[#e1e2e6]">
-				<div className="filter bg-white border border-[#e1e2e6] rounded px-3 py-1 text-sm flex items-center gap-1 cursor-pointer">
-					5 Open <ChevronDown className="w-4 h-4" />
+			<div className="filter-bar flex gap-1 px-2 py-2">
+				<div className="filter bg-white rounded px-2 py-1 text-[10px] md:text-xs flex items-center gap-1 cursor-pointer font-semibold min-w-0 max-w-[80px] truncate">
+					5 Open <ChevronDown className="w-3 h-3" />
 				</div>
-				<div className="filter bg-white border border-[#e1e2e6] rounded px-3 py-1 text-sm flex items-center gap-1 cursor-pointer">
-					Waiting longest <ChevronDown className="w-4 h-4" />
+				<div className="filter bg-white rounded px-2 py-1 text-[10px] md:text-xs flex items-center gap-1 cursor-pointer font-semibold min-w-0 max-w-[110px] truncate">
+					Waiting longest <ChevronDown className="w-3 h-3" />
 				</div>
 			</div>
-			<div className="conversation-list flex-1 overflow-y-auto">
+			<div className="conversation-list flex-1 px-1 overflow-y-auto scrollbar-hide">
 				{conversations.map((conv) => (
 					<div
 						key={conv.id}
+						onClick={() => onSelect(conv.id)}
 						className={`conversation-item px-4 py-3 border-b border-[#e1e2e6] cursor-pointer ${
-							conv.active
-								? "bg-[#edf2ff] border-l-4 border-[#6364c8]"
+							selectedId === conv.id
+								? "bg-[#edf2ff] border-b-2 border-[#6364c8]"
 								: "hover:bg-[#f0f1f3]"
-						}`}
+						} rounded-2xl`}
 					>
 						<div className="conversation-header flex justify-between mb-1">
-							<div className="sender-info flex items-center gap-2">
+							<div className="sender-info flex items-center gap-1">
 								<div
-									className={`avatar w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold ${conv.avatarColor}`}
+									className={`avatar w-6 h-6 md:w-7 md:h-7 rounded-full flex items-center justify-center text-[9px] md:text-xs font-bold ${conv.avatarColor}`}
 								>
 									{conv.avatar}
 								</div>
-								<div className="text-sm font-medium">{conv.name}</div>
+								<div className="text-[10px] md:text-xs font-medium">
+									{conv.name}
+								</div>
 							</div>
 							<div className="flex items-center gap-1">
 								{conv.priority && (
@@ -100,11 +56,11 @@ const Inbox = () => {
 								</span>
 							</div>
 						</div>
-						<div className="conversation-preview text-gray-600 text-sm truncate">
+						<div className="conversation-preview text-gray-600 text-[10px] md:text-xs truncate">
 							{conv.preview}
 						</div>
 						{conv.subPreview && (
-							<div className="conversation-preview text-gray-400 text-xs truncate">
+							<div className="conversation-preview text-gray-400 text-[9px] md:text-[10px] truncate">
 								{conv.subPreview}
 							</div>
 						)}
